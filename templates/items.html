@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for item in items %}
+        <h3>
+            {{ item.title }}
+        </h3>
+        <h3>
+            {{ item.price }}
+        </h3>
+        <img src=""
+        <a href="/getItem/{{ item.id }}/">
+            View Details
+        </a>
+    {% endfor %}
+    <a href="/createItem/">
+        Create an Item
+    </a>
+{% endblock content %}

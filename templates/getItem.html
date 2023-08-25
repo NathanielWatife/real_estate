@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="/">Back</a>
+    <h1>{{ item.title }}</h1>
+    <h4>{{ item.price }}</h4>
+    <h4>{{ item.num_bedrooms }}</h4>
+    <h4>{{ item.num_bathrooms }}</h4>
+    <p>{{ item.address }}</p>
+    <img src="{{ item.image.url }}" alt="" />
+
+    {% comment %} {% if request.user.is_staff %} {% endcomment %}
+        <a href="/updateItem/{{ item.id }}/edit/">
+            Edit
+        </a>
+        <a href="/deleteItem/{{ item.id }}/delete/">
+            Delete
+        </a>
+    {% comment %} {% endif %} {% endcomment %}
+{% endblock content %}
