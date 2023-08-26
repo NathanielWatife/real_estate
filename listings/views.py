@@ -21,7 +21,7 @@ def getItem(request, pk):
 def createItem(request):
     form = ListingForm()
     if request.method == 'POST':
-        form = ListingForm(request.POST, files=request.FILES)
+        form = ListingForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("/")
@@ -33,9 +33,9 @@ def createItem(request):
 
 def updateItem(request, pk):
     item = Listing.objects.get(id=pk)
-    form = ListingForm(instance=listing)
+    form = ListingForm(instance=item)
     if request.method == 'POST':
-        form = ListingForm(request.POST, instance=listing, files=request.FILES)
+        form = ListingForm(request.POST, instance=item, files=request.FILES)
         if form.is_valid():
             form.save()
             return redirect("/")
